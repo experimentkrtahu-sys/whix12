@@ -60,7 +60,7 @@ module.exports = (client) => {
         [
             {
                 name: "Main",
-                url: process.env.LAVALINK_URL || "whizbot.railway.internal:2333",
+                url: process.env.LAVALINK_URL || "localhost:2333",
                 auth: process.env.LAVALINK_PASSWORD || "youshallnotpass"
             }
         ],
