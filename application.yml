@@ -1,6 +1,6 @@
 server:
-  port: 443
-  address: whizbot.railway.internal
+  port: 2333
+  address: 0.0.0.0
 
 lavalink:
   plugins:
