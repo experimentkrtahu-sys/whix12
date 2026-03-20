@@ -8,7 +8,7 @@ function formatDuration(ms) {
     const seconds = Math.floor((ms / 1000) % 60);
     const minutes = Math.floor((ms / (1000 * 60)) % 60);
     const hours = Math.floor((ms / (1000 * 60 * 60)) % 24);
-    
+
     return [
         hours > 0 ? hours : null,
         minutes.toString().padStart(2, "0"),
@@ -41,7 +41,7 @@ async function disablePreviousMessage(client, player) {
                 }
             }
         } catch (err) {
-           // Ignore if message already deleted or not found
+            // Ignore if message already deleted or not found
         }
         player.data.delete("nowPlayingMessage");
     }
@@ -60,7 +60,7 @@ module.exports = (client) => {
         [
             {
                 name: "Main",
-                url: "whizbot.railway.internal:2333",
+                url: "whizbot.railway.internal:443",
                 auth: "youshallnotpass"
             }
         ],
@@ -165,7 +165,7 @@ module.exports = (client) => {
     kazagumo.on("playerEmpty", async (player) => {
         console.log(`Queue empty in guild ${player.guildId}`);
         await disablePreviousMessage(client, player);
-        
+
         const autoplay = player.data.get("autoplay") ?? true;
         const lastTrack = player.data.get("lastTrack");
 
@@ -184,10 +184,10 @@ module.exports = (client) => {
                     if (availableTracks.length) {
                         const randomIndex = Math.floor(Math.random() * Math.min(10, availableTracks.length));
                         const relatedTrack = availableTracks[randomIndex];
-                        
+
                         player.queue.add(relatedTrack);
                         player.play();
-                        
+
                         const textChannel = client.channels.cache.get(player.textId);
                         if (textChannel) {
                             textChannel.send(`✨ **Autoplay:** Now playing related track: **${relatedTrack.title}**`);
@@ -199,7 +199,7 @@ module.exports = (client) => {
                 console.error("Autoplay Error:", error);
             }
         }
-        
+
         queueStore.saveQueue(player.guildId, null);
     });
 
