@@ -60,7 +60,7 @@ module.exports = (client) => {
         [
             {
                 name: "Main",
-                url: "127.0.0.1:2333",
+                url: "whizbot.railway.internal:2333",
                 auth: "youshallnotpass"
             }
         ],
