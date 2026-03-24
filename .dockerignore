@@ -1,7 +1,0 @@
-node_modules
-logs
-.env
-.git
-.gitignore
-Queue_cache.json
-queue_cache.json
